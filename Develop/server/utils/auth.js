@@ -18,6 +18,10 @@ const authMiddleware = (context) => {
     throw new AuthenticationError('You have no token!');
   }
 
+  // if (!token) {
+  //   throw req
+  // }
+
   try {
     const decodedToken = jwt.verify(token, secret);
     context.user = decodedToken.data;
